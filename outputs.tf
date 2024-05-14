@@ -1,4 +1,32 @@
 output "info" {
+  description = <<EOF
+  [Output] Infra Info List
+  {
+    vpc = {
+      id = string
+      cidr_block = string
+      default_route_table_id = string
+      default_network_acl_id = string
+      default_security_group_id = string
+      internet_id = string
+    }
+    cidr_association_id = map(string)
+    cidr_association_cidr = map(string)
+    route_table_id = map(string)
+    subnet_id = map(string)
+    subnet_cidr = map(string)
+    eip_id = map(string)
+    eip_public_ip = map(string)
+    eip_public_dns = map(string)
+    eip_private_ip = map(string)
+    eip_private_dns = map(string)
+    nat_public_id = map(string)
+    nat_public_ip = map(string)
+    nat_private_ip = map(string)
+    acl_id = map(string)
+    security_group_id = map(string)
+  }
+  EOF
   value = {
     vpc = {
       id = aws_vpc.create.id
